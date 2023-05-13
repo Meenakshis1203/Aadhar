@@ -38,34 +38,36 @@ export default function AadharView({ email }) {
   const { firstName, lastName, homeAddress, phoneNumber, aadharNumber } =
     aadhar;
 
-  return (
-    <Grid container spacing={2}>
-      <Grid item xs={12}>
-        <Typography sx={{ mb: 1.5, mt: 5 }} variant="h3" component="div">
-          Aadhar card
-        </Typography>
+    return (
+      <Grid container justifyContent="center" alignItems="center" style={{ height: "100vh" }}>
+        <Grid item xs={12} sm={6} md={4}>
+          <Card style={{ borderRadius: "10px", boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.2)" }}>
+            <CardContent style={{ padding: "20px" }}>
+              <div style={{ display: "flex", justifyContent: "space-between" }}>
+          
+                <Typography variant="h6" style={{ fontWeight: "bold" }}>
+                  Aadhar Card
+                </Typography>
+                <div style={{ width: "50px" }}></div>
+              </div>
+              <Typography variant="body1" style={{ marginTop: "20px" }}>
+                Name: {firstName} {lastName}
+              </Typography>
+              <Typography variant="body1">
+                Aadhar Number: {aadharNumber}
+              </Typography>
+              <Typography variant="body1">
+                Email: {email}
+              </Typography>
+              <Typography variant="body1">
+                Phone: {phoneNumber}
+              </Typography>
+              <Typography variant="body1">
+                Address: {homeAddress}
+              </Typography>
+            </CardContent>
+          </Card>
+        </Grid>
       </Grid>
-      <Card sx={{ minWidth: 275 }}>
-        <CardMedia
-            component="img"
-            alt="green iguana"
-            height="140"
-            image="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
-        />
-        <CardContent>
-          <Typography sx={{ mb: 1.5 }} variant="h5" component="div">
-            {aadharNumber}
-          </Typography>
-          <Typography color="text.secondary">
-            Name: {firstName} {lastName}
-          </Typography>
-          <Typography color="text.secondary">Email: {email}</Typography>
-          <Typography color="text.secondary">Phone: {phoneNumber}</Typography>
-          <Typography color="text.secondary">
-            Home Address: {homeAddress}
-          </Typography>
-        </CardContent>
-      </Card>
-    </Grid>
-  );
+    );
 }
